@@ -101,7 +101,7 @@ class MainWindow(QMainWindow):
         if self.database == None: return self.error("You didn't load a tsv file!")
         self.ui.Output.setText('')
         try: login = Email(self.ui.Email.text(), self.ui.Password.text())
-        except Exception as ex: return self.error("Unable to login. {ex}")
+        except Exception as ex: return self.error(f"Unable to login. {ex}")
 
         # plain text part
         attach = ''
@@ -123,8 +123,9 @@ class MainWindow(QMainWindow):
             try: login.send(people[self.ui.TSVEmail.text()], self.ui.Subject.text(), text_part, attach)
             except Exception as ex: self.error(f"Failed to send email to {people[self.ui.TSVEmail.text()]}: {ex}")
 
-            for de in delete:
-                remove(de)
+            if delete:
+                for de in delete:
+                    remove(de)
 
     def showREPLACE(self):
         if self.database == None: return self.error("You didn't load a tsv file!")
