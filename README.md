@@ -28,3 +28,6 @@ Show it by clicking `show tool section` and then click the `Check TSV Slots` but
 
 ![image](https://user-images.githubusercontent.com/78972830/135733439-27c00251-8b26-439c-baf4-d9d5b0c5abaa.png)
 
+You can see how you email looks like even before sending!
+![image](https://user-images.githubusercontent.com/78972830/135733532-3f564cad-5ad1-4c93-ae8c-ac701408405a.png)
+
