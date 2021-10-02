@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindowGyUxea.ui'
+## Form generated from reading UI file 'mainwindowgMaPqG.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import QSize, QCoreApplication, Qt, QMetaObject
+from PySide6.QtCore import *
+from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
 
@@ -16,9 +17,13 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(908, 429)
+        MainWindow.resize(1019, 462)
         MainWindow.setMinimumSize(QSize(0, 0))
         MainWindow.setMaximumSize(QSize(2545254, 16777215))
+        MainWindow.setAcceptDrops(True)
+        icon = QIcon()
+        icon.addFile(u"../PyAutoMail/pyautomail.png", QSize(), QIcon.Normal, QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -89,6 +94,7 @@ class Ui_MainWindow(object):
         self.Files.setObjectName(u"Files")
         self.Attach = QPushButton(self.centralwidget)
         self.Attach.setObjectName(u"Attach")
+        self.Attach.setAcceptDrops(True)
         self.Attach.setFlat(False)
 
         self.Files.addWidget(self.Attach)
@@ -132,6 +138,38 @@ class Ui_MainWindow(object):
         self.EmailText.setObjectName(u"EmailText")
 
         self.EmailCfg.addWidget(self.EmailText)
+
+        self.Attachments_2 = QFrame(self.centralwidget)
+        self.Attachments_2.setObjectName(u"Attachments_2")
+        self.Attachments = QHBoxLayout(self.Attachments_2)
+        self.Attachments.setObjectName(u"Attachments")
+        self.Attachment1 = QPushButton(self.Attachments_2)
+        self.Attachment1.setObjectName(u"Attachment1")
+
+        self.Attachments.addWidget(self.Attachment1)
+
+        self.Attachment2 = QPushButton(self.Attachments_2)
+        self.Attachment2.setObjectName(u"Attachment2")
+
+        self.Attachments.addWidget(self.Attachment2)
+
+        self.Attachment3 = QPushButton(self.Attachments_2)
+        self.Attachment3.setObjectName(u"Attachment3")
+
+        self.Attachments.addWidget(self.Attachment3)
+
+        self.Attachment4 = QPushButton(self.Attachments_2)
+        self.Attachment4.setObjectName(u"Attachment4")
+
+        self.Attachments.addWidget(self.Attachment4)
+
+        self.Attachment5 = QPushButton(self.Attachments_2)
+        self.Attachment5.setObjectName(u"Attachment5")
+
+        self.Attachments.addWidget(self.Attachment5)
+
+
+        self.EmailCfg.addWidget(self.Attachments_2)
 
         self.TSVCONFIG = QHBoxLayout()
         self.TSVCONFIG.setObjectName(u"TSVCONFIG")
@@ -193,20 +231,25 @@ class Ui_MainWindow(object):
 
         self.Buttons = QHBoxLayout()
         self.Buttons.setObjectName(u"Buttons")
-        self.CheckReplace = QPushButton(self.OutputSection)
-        self.CheckReplace.setObjectName(u"CheckReplace")
+        self.Ifconfig = QPushButton(self.OutputSection)
+        self.Ifconfig.setObjectName(u"Ifconfig")
 
-        self.Buttons.addWidget(self.CheckReplace)
-
-        self.ManualButton = QPushButton(self.OutputSection)
-        self.ManualButton.setObjectName(u"ManualButton")
-
-        self.Buttons.addWidget(self.ManualButton)
+        self.Buttons.addWidget(self.Ifconfig)
 
         self.CheckTSV = QPushButton(self.OutputSection)
         self.CheckTSV.setObjectName(u"CheckTSV")
 
         self.Buttons.addWidget(self.CheckTSV)
+
+        self.CheckReplace = QPushButton(self.OutputSection)
+        self.CheckReplace.setObjectName(u"CheckReplace")
+
+        self.Buttons.addWidget(self.CheckReplace)
+
+        self.Manual = QPushButton(self.OutputSection)
+        self.Manual.setObjectName(u"Manual")
+
+        self.Buttons.addWidget(self.Manual)
 
 
         self.CheckSection.addLayout(self.Buttons)
@@ -232,7 +275,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"AutoEmail", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"PyAutoEmail", None))
         MainWindow.setProperty("Man", "")
         self.Error.setMarkdown("")
         self.Error.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -248,11 +291,18 @@ class Ui_MainWindow(object):
         self.TSV.setText(QCoreApplication.translate("MainWindow", u"DataBank (.tsv file)", None))
         self.SubjectT.setText(QCoreApplication.translate("MainWindow", u"Email Subject", None))
         self.EmailText.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Email text here. We also accept html scripts and the replace commands works here too.", None))
+        self.Attachment1.setText(QCoreApplication.translate("MainWindow", u"Attachment 1", None))
+        self.Attachment2.setText(QCoreApplication.translate("MainWindow", u"Attachment 2", None))
+        self.Attachment3.setText(QCoreApplication.translate("MainWindow", u"Attachment 3", None))
+        self.Attachment4.setText(QCoreApplication.translate("MainWindow", u"Attachment 4", None))
+        self.Attachment5.setText(QCoreApplication.translate("MainWindow", u"Attachment 5", None))
         self.LabelTSV.setText(QCoreApplication.translate("MainWindow", u"TSV column for email", None))
-        self.Show.setText(QCoreApplication.translate("MainWindow", u"Show output section", None))
+        self.TSVEmail.setText(QCoreApplication.translate("MainWindow", u"Email", None))
+        self.Show.setText(QCoreApplication.translate("MainWindow", u"Show tools section", None))
         self.Output.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Output will be shown here!", None))
         self.Output.setProperty("Manual", "")
-        self.CheckReplace.setText(QCoreApplication.translate("MainWindow", u"Check TSV DataSlots", None))
-        self.ManualButton.setText(QCoreApplication.translate("MainWindow", u"Check Replace Output", None))
-        self.CheckTSV.setText(QCoreApplication.translate("MainWindow", u"Manual", None))
+        self.Ifconfig.setText(QCoreApplication.translate("MainWindow", u"IfConfig", None))
+        self.CheckTSV.setText(QCoreApplication.translate("MainWindow", u"Check TSV Slots", None))
+        self.CheckReplace.setText(QCoreApplication.translate("MainWindow", u"Check Replace Output", None))
+        self.Manual.setText(QCoreApplication.translate("MainWindow", u"Manual", None))
     # retranslateUi
