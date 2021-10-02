@@ -26,5 +26,5 @@ You can easily replace keywords with data found on spreadsheet. Just write the k
 You can see the TSV file and the keywords you can use into the `tool section`.
 Show it by clicking `show tool section` and then click the `Check TSV Slots` button.
 
-![image](https://user-images.githubusercontent.com/78972830/135733390-0f75a842-ee73-4a4d-a97a-cf933a5fe2f0.png)
+![image](https://user-images.githubusercontent.com/78972830/135733439-27c00251-8b26-439c-baf4-d9d5b0c5abaa.png)
 
