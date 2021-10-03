@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindowgMaPqG.ui'
+## Form generated from reading UI file 'mainwindowTdwDSb.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1019, 462)
+        MainWindow.resize(1029, 462)
         MainWindow.setMinimumSize(QSize(0, 0))
         MainWindow.setMaximumSize(QSize(2545254, 16777215))
         MainWindow.setAcceptDrops(True)
@@ -223,6 +223,31 @@ class Ui_MainWindow(object):
         self.OutputSection.setEnabled(True)
         self.CheckSection = QVBoxLayout(self.OutputSection)
         self.CheckSection.setObjectName(u"CheckSection")
+        self.APIarea = QHBoxLayout()
+        self.APIarea.setObjectName(u"APIarea")
+        self.LAPI = QLabel(self.OutputSection)
+        self.LAPI.setObjectName(u"LAPI")
+
+        self.APIarea.addWidget(self.LAPI)
+
+        self.API = QLineEdit(self.OutputSection)
+        self.API.setObjectName(u"API")
+
+        self.APIarea.addWidget(self.API)
+
+        self.LPORT = QLabel(self.OutputSection)
+        self.LPORT.setObjectName(u"LPORT")
+
+        self.APIarea.addWidget(self.LPORT)
+
+        self.Port = QLineEdit(self.OutputSection)
+        self.Port.setObjectName(u"Port")
+
+        self.APIarea.addWidget(self.Port)
+
+
+        self.CheckSection.addLayout(self.APIarea)
+
         self.Output = QTextEdit(self.OutputSection)
         self.Output.setObjectName(u"Output")
         self.Output.setReadOnly(True)
@@ -299,6 +324,10 @@ class Ui_MainWindow(object):
         self.LabelTSV.setText(QCoreApplication.translate("MainWindow", u"TSV column for email", None))
         self.TSVEmail.setText(QCoreApplication.translate("MainWindow", u"Email", None))
         self.Show.setText(QCoreApplication.translate("MainWindow", u"Show tools section", None))
+        self.LAPI.setText(QCoreApplication.translate("MainWindow", u"Server API", None))
+        self.API.setText(QCoreApplication.translate("MainWindow", u"smtp.gmail.com", None))
+        self.LPORT.setText(QCoreApplication.translate("MainWindow", u"Port", None))
+        self.Port.setText(QCoreApplication.translate("MainWindow", u"587", None))
         self.Output.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Output will be shown here!", None))
         self.Output.setProperty("Manual", "")
         self.Ifconfig.setText(QCoreApplication.translate("MainWindow", u"IfConfig", None))

@@ -26,6 +26,7 @@ class MainWindow(QMainWindow):
 
         self.buttons = [self.ui.Attachment1, self.ui.Attachment2, self.ui.Attachment3, self.ui.Attachment4, self.ui.Attachment5]
         self.database = None
+        self.login = None
         self.attach = []
 
         # [ Hide optional sections ]
@@ -99,9 +100,12 @@ class MainWindow(QMainWindow):
 
     def sendEmails(self):
         if self.database == None: return self.error("You didn't load a tsv file!")
+
+        if self.login == None:
+            try: self.login = Email(self.ui.Email.text(), self.ui.Password.text(), self.ui.Port.text(), self.ui.API.text())
+            except Exception as ex: return self.error(f"Unable to login. {ex}")
+
         self.ui.Output.setText('')
-        try: login = Email(self.ui.Email.text(), self.ui.Password.text())
-        except Exception as ex: return self.error(f"Unable to login. {ex}")
 
         # plain text part
         attach = ''
@@ -114,13 +118,14 @@ class MainWindow(QMainWindow):
             text_part = eval(f"""self.ui.EmailText.toPlainText().format({config})""")
 
             # attach part
-            for at in attachSave:
-                if at.endswith('.docx'):
-                    docxReplacer(at, config, people[self.ui.TSVEmail.text()])
-                    attach = people[self.ui.TSVEmail.text()] + '.docx'
-                    delete.append(attach)
+            if len(attachSave) > 0:
+                for at in attachSave:
+                    if at.endswith('.docx'):
+                        docxReplacer(at, config, people[self.ui.TSVEmail.text()])
+                        attach = people[self.ui.TSVEmail.text()] + '.docx'
+                        delete.append(attach)
 
-            try: login.send(people[self.ui.TSVEmail.text()], self.ui.Subject.text(), text_part, attach)
+            try: self.login.send(people[self.ui.TSVEmail.text()], self.ui.Subject.text(), text_part, attach)
             except Exception as ex: self.error(f"Failed to send email to {people[self.ui.TSVEmail.text()]}: {ex}")
 
             if delete:

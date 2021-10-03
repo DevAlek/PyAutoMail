@@ -56,7 +56,7 @@ email.send(to: str, subject: str, text: str, attach: list):
 
 		if len(attach) > 0:
 			for attachment in attach:
-				if type(attachment) != str: continue
+				if type(attachment) != str or not attachment: continue
 
 				filename = attachment
 				fattachment = open(filename, "rb")
