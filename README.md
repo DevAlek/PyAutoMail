@@ -5,17 +5,12 @@ PyAutoMail is an open source tool created to make it easy to send emails to mult
 ---
 
 # How to use  
-PyAutoMail is easy-to-use!  
-Just make a spreadsheet with all the data you need in this format:
-
-![image](https://user-images.githubusercontent.com/78972830/135733243-eab52f4c-38a9-449b-8548-70a61e1a162a.png)
-  
-And then, save it into the `tsv` format: 
-
+First, make n spreadsheet with all the data you need and save it into a `tsv` file: !  
+![image](https://user-images.githubusercontent.com/78972830/135733243-eab52f4c-38a9-449b-8548-70a61e1a162a.png)  
 ![image](https://user-images.githubusercontent.com/78972830/135733262-bfd7ace6-4fd0-43b6-83bd-78230046af4e.png)
 
 
-And load it into the application with this button:
+Load the tsv file with this button:  
 ![image](https://user-images.githubusercontent.com/78972830/135733067-105a3bba-53a0-4d42-abc2-3c687b236a0f.png)
 And there you go! Easy!
 
