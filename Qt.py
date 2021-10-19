@@ -41,14 +41,10 @@ class MainWindow(QMainWindow):
         self.ui.Email.editingFinished.connect(self.checkEmail)
 
         # [ Checking section ]
-        self.ui.CheckTSV.pressed.connect(self.showTSV)
         self.ui.Manual.pressed.connect(self.showManual)
-        self.ui.CheckReplace.pressed.connect(self.showREPLACE)
-        self.ui.Ifconfig.pressed.connect(self.condicional)
 
         # [ Open files ]
         self.ui.Attach.pressed.connect(self.openAttach)
-        self.ui.TSV.pressed.connect(self.openTSV)
 
         # [ Action ]
         self.ui.Confirm.accepted.connect(self.sendEmails)
@@ -99,56 +95,14 @@ class MainWindow(QMainWindow):
         self.ui.Output.setText('In progress...')
 
     def sendEmails(self):
-        if self.database == None: return self.error("You didn't load a tsv file!")
-
         if self.login == None:
             try: self.login = Email(self.ui.Email.text(), self.ui.Password.text(), self.ui.Port.text(), self.ui.API.text())
             except Exception as ex: return self.error(f"Unable to login. {ex}")
 
         self.ui.Output.setText('')
 
-        # plain text part
-        attach = ''
-        delete = []
-        attachSave = self.attach
-        for people in self.database:
-            print(people)
-            self.ui.Output.setText(self.ui.Output.toPlainText()+'\n'+f'Sending to {people[self.ui.TSVEmail.text()]}')
-            config = ','.join([f'{"".join(e for e in key if e.isalnum())} = """ {people[key]} """' for key in people])
-            text_part = eval(f"""self.ui.EmailText.toPlainText().format({config})""")
-
-            # attach part
-            if len(attachSave) > 0:
-                for at in attachSave:
-                    if at.endswith('.docx'):
-                        docxReplacer(at, config, people[self.ui.TSVEmail.text()])
-                        attach = people[self.ui.TSVEmail.text()] + '.docx'
-                        delete.append(attach)
-
-            try: self.login.send(people[self.ui.TSVEmail.text()], self.ui.Subject.text(), text_part, attach)
-            except Exception as ex: self.error(f"Failed to send email to {people[self.ui.TSVEmail.text()]}: {ex}")
-
-            if delete:
-                for de in delete:
-                    remove(de)
-
-    def showREPLACE(self):
-        if self.database == None: return self.error("You didn't load a tsv file!")
-
-        config = ','.join([f'{"".join(e for e in key if e.isalnum())} = """ {self.database[0][key]} """' for key in self.database[0]])
-        send = eval(f"""self.ui.EmailText.toPlainText().format({config})""")
-
-        self.ui.Output.setText(send)
-
-    def showTSV(self):
-        if self.database == None: return self.error("You didn't load a tsv file!")
-        self.ui.Output.setText('→ '+'\n\n → '.join(['\n· '.join([f'{"".join(e for e in data if e.isalnum())}: {people[data]}' for data in people]) for people in self.database]))
-
-    def openTSV(self):
-        file = QFileDialog.getOpenFileName(self, 'Select the spreadsheet (.tsv file)')[0]
-        if not file.endswith('.tsv'): return self.error("The file extension must be .tsv!")
-        if not file: return
-        self.database = tsvToDict(file)
+        try: self.login.send(self.ui.Destination.text(), self.ui.Subject.text(), text_part, self.attach)
+        except Exception as ex: self.error(f"Failed to send email to {self.ui.Destination.text()}: {ex}")
 
     def showManual(self):
         self.ui.Output.setHtml(manual_text)

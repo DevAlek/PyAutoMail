@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindowTdwDSb.ui'
+## Form generated from reading UI file 'pymailxoUMYs.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -94,15 +94,11 @@ class Ui_MainWindow(object):
         self.Files.setObjectName(u"Files")
         self.Attach = QPushButton(self.centralwidget)
         self.Attach.setObjectName(u"Attach")
+        self.Attach.setMouseTracking(False)
         self.Attach.setAcceptDrops(True)
         self.Attach.setFlat(False)
 
         self.Files.addWidget(self.Attach)
-
-        self.TSV = QPushButton(self.centralwidget)
-        self.TSV.setObjectName(u"TSV")
-
-        self.Files.addWidget(self.TSV)
 
 
         self.Form.addLayout(self.Files)
@@ -130,6 +126,16 @@ class Ui_MainWindow(object):
         self.Subject.setObjectName(u"Subject")
 
         self.SubjectField.setWidget(0, QFormLayout.FieldRole, self.Subject)
+
+        self.destinationLabel = QLabel(self.centralwidget)
+        self.destinationLabel.setObjectName(u"destinationLabel")
+
+        self.SubjectField.setWidget(1, QFormLayout.LabelRole, self.destinationLabel)
+
+        self.Destination = QLineEdit(self.centralwidget)
+        self.Destination.setObjectName(u"Destination")
+
+        self.SubjectField.setWidget(1, QFormLayout.FieldRole, self.Destination)
 
 
         self.EmailCfg.addLayout(self.SubjectField)
@@ -173,16 +179,6 @@ class Ui_MainWindow(object):
 
         self.TSVCONFIG = QHBoxLayout()
         self.TSVCONFIG.setObjectName(u"TSVCONFIG")
-        self.LabelTSV = QLabel(self.centralwidget)
-        self.LabelTSV.setObjectName(u"LabelTSV")
-
-        self.TSVCONFIG.addWidget(self.LabelTSV)
-
-        self.TSVEmail = QLineEdit(self.centralwidget)
-        self.TSVEmail.setObjectName(u"TSVEmail")
-
-        self.TSVCONFIG.addWidget(self.TSVEmail)
-
 
         self.EmailCfg.addLayout(self.TSVCONFIG)
 
@@ -256,21 +252,6 @@ class Ui_MainWindow(object):
 
         self.Buttons = QHBoxLayout()
         self.Buttons.setObjectName(u"Buttons")
-        self.Ifconfig = QPushButton(self.OutputSection)
-        self.Ifconfig.setObjectName(u"Ifconfig")
-
-        self.Buttons.addWidget(self.Ifconfig)
-
-        self.CheckTSV = QPushButton(self.OutputSection)
-        self.CheckTSV.setObjectName(u"CheckTSV")
-
-        self.Buttons.addWidget(self.CheckTSV)
-
-        self.CheckReplace = QPushButton(self.OutputSection)
-        self.CheckReplace.setObjectName(u"CheckReplace")
-
-        self.Buttons.addWidget(self.CheckReplace)
-
         self.Manual = QPushButton(self.OutputSection)
         self.Manual.setObjectName(u"Manual")
 
@@ -300,29 +281,31 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"PyAutoEmail", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"PyEmail", None))
         MainWindow.setProperty("Man", "")
         self.Error.setMarkdown("")
         self.Error.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Noto Sans'; font-size:10pt;\"><br /></p></body></html>", None))
         self.CloseError.setText(QCoreApplication.translate("MainWindow", u"Close", None))
         self.zP.setText(QCoreApplication.translate("MainWindow", u"Password", None))
+        self.Email.setPlaceholderText(QCoreApplication.translate("MainWindow", u"my@email.com", None))
         self.Password.setText("")
+        self.Password.setPlaceholderText(QCoreApplication.translate("MainWindow", u"*************************", None))
         self.zK.setText(QCoreApplication.translate("MainWindow", u"Email", None))
         self.Attach.setText(QCoreApplication.translate("MainWindow", u"Attach File", None))
-        self.TSV.setText(QCoreApplication.translate("MainWindow", u"DataBank (.tsv file)", None))
         self.SubjectT.setText(QCoreApplication.translate("MainWindow", u"Email Subject", None))
+        self.Subject.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Subject", None))
+        self.destinationLabel.setText(QCoreApplication.translate("MainWindow", u"Destination: ", None))
+        self.Destination.setPlaceholderText(QCoreApplication.translate("MainWindow", u"someone@somewhere.com", None))
         self.EmailText.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Email text here. We also accept html scripts and the replace commands works here too.", None))
         self.Attachment1.setText(QCoreApplication.translate("MainWindow", u"Attachment 1", None))
         self.Attachment2.setText(QCoreApplication.translate("MainWindow", u"Attachment 2", None))
         self.Attachment3.setText(QCoreApplication.translate("MainWindow", u"Attachment 3", None))
         self.Attachment4.setText(QCoreApplication.translate("MainWindow", u"Attachment 4", None))
         self.Attachment5.setText(QCoreApplication.translate("MainWindow", u"Attachment 5", None))
-        self.LabelTSV.setText(QCoreApplication.translate("MainWindow", u"TSV column for email", None))
-        self.TSVEmail.setText(QCoreApplication.translate("MainWindow", u"Email", None))
         self.Show.setText(QCoreApplication.translate("MainWindow", u"Show tools section", None))
         self.LAPI.setText(QCoreApplication.translate("MainWindow", u"Server API", None))
         self.API.setText(QCoreApplication.translate("MainWindow", u"smtp.gmail.com", None))
@@ -330,8 +313,5 @@ class Ui_MainWindow(object):
         self.Port.setText(QCoreApplication.translate("MainWindow", u"587", None))
         self.Output.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Output will be shown here!", None))
         self.Output.setProperty("Manual", "")
-        self.Ifconfig.setText(QCoreApplication.translate("MainWindow", u"IfConfig", None))
-        self.CheckTSV.setText(QCoreApplication.translate("MainWindow", u"Check TSV Slots", None))
-        self.CheckReplace.setText(QCoreApplication.translate("MainWindow", u"Check Replace Output", None))
         self.Manual.setText(QCoreApplication.translate("MainWindow", u"Manual", None))
     # retranslateUi
