@@ -7,6 +7,7 @@ from pandas import DataFrame, read_table
 from defaultlist import defaultlist
 from appdirs import user_cache_dir
 from markdown import markdown
+from string import Template
 
 from ui import QFileDialog, QTableWidgetItem, QUrl, Ui_MainWindow, QApplication, QMainWindow, QFile
 
@@ -15,10 +16,13 @@ cache = user_cache_dir("Carrier Pigeon")
 try: os.mkdir(cache)
 except: pass
 
-services = defaultdict(lambda: "",
+services = defaultdict(lambda: ("localhost", 456),
 
 {
-	"Gmail": ("smtp.gmail.com", 465),
+	"Gmail":      ("smtp.gmail.com", 465),
+	"Hotmail":    ("smtp.office365.com", 587),
+	"YahooMail":  ("smtp.mail.yahoo.com", 456),
+	"Protonmail": ("Use Other” option", 0),
 })
 
 # [ Qt class ]
@@ -72,8 +76,7 @@ class MainWindow(QMainWindow):
 		self.ui.Preview.reload()
 	
 	def Replace(self, text: str, which: int):
-		try: return text.format(self.theDatabase[which]).replace('\n', '  \n')
-		except: return text.replace('\n', '  \n')
+		return Template(text.replace('\n', '  \n')).safe_substitute(self.theDatabase[which])
 
 	def loadCsvData(self, file):
 		temp = read_table(file, sep=",", skip_blank_lines = True, dtype=str, na_filter = False)
@@ -81,7 +84,7 @@ class MainWindow(QMainWindow):
 		temp = temp.to_dict("records")
 		
 		default = defaultlist(lambda: {key:'' for key in temp[0].keys()})
-		default += [defaultdict(lambda: {key:'' for key in element.keys()}, element) for element in temp]
+		default += [defaultdict(lambda: '', element) for element in temp]
 		
 		self.theDatabase = default
 		return
