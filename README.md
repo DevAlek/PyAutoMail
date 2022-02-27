@@ -1,33 +1,19 @@
-# PyAutoMail 🐍💌
+# What is Carrier Pigeon?
 
-PyAutoMail is an open source tool created to make it easier to send emails to multiple people. 
+Carrier Pigeon is an automated, highly versatile and convenient SMTP-based application made in Python and Qt6.  
+If you don't know what SMTP is, I'd recommend that you read the following articles that explains the definition of SMTP and how to set it up:
 
-# Features 💫
-* 🎩 Multiple destinations
-* 🔮 Use handy spreadsheets specify destinations and information
-* 🧹 Replace specific parts of your documents or message for each indivudal destination
-* 🌐 Uses GMail SMTP by default - supports any SMTP servers
+- What is SMTP: https://www.tutorialspoint.com/what-is-smtp/;
+- How to set Gmail's SMTP: https://www.gmass.co/blog/gmail-smtp/;
+- How to set Yahoo's SMTP: https://www.gmass.co/blog/yahoo-smtp-settings/;
+- How to set Outlook's SMTP: https://www.gmass.co/blog/outlook-smtp/;
+- How to set Protonmail's SMTP: https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/.
 
-# How-to ✂️
+If you use a different email provider, search how to setup a SMTP and input the address and port in this format (`address.tld:port`) at the “Other service” field. Select “Other” in the “Email service” combo box too.
 
-1. Create a spreadsheet in the following format, and save it as a TSV file
+![image-20220227161559245](/home/alek/.config/Typora/typora-user-images/image-20220227161559245.png)
 
-![image](https://user-images.githubusercontent.com/78972830/135733243-eab52f4c-38a9-449b-8548-70a61e1a162a.png)
+Also, depending on how does the SMTP settings of your email provider works, you may use an ***API token*** instead of your normal password.
 
-![image](https://user-images.githubusercontent.com/78972830/135733262-bfd7ace6-4fd0-43b6-83bd-78230046af4e.png)
+# How does it works?
 
-2. Load the file in the program
-
-![image](https://user-images.githubusercontent.com/78972830/135733067-105a3bba-53a0-4d42-abc2-3c687b236a0f.png)
-
-Done!
-
-As you can see in the above example image, you can set text that varies depending on the destination, by including the column name in curly brackets (`{}`).
-
-You can have a look at the TSV file and keywords by checking the `Show tool section` box and clicking `Check TSV Slots`.
-
-![image](https://user-images.githubusercontent.com/78972830/135733439-27c00251-8b26-439c-baf4-d9d5b0c5abaa.png)
-
-You can also check if the keywords are being replaced properly by clicking "Check Replace Output"
-
-![image](https://user-images.githubusercontent.com/78972830/135733532-3f564cad-5ad1-4c93-ae8c-ac701408405a.png)
